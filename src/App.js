@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import './App.css'
-import axios from 'axios'
 /**
  *
  * @type {React.FC}
@@ -11,15 +10,7 @@ export const App = () => {
   const firstDogUrl =
     'https://images.dog.ceo/breeds/spaniel-brittany/n02101388_6057.jpg'
   const [dogUrl, setDogUrl] = React.useState(firstDogUrl)
-
-  const fetchRandomDogApi = () => {
-    const randomDogApi = 'https://dog.ceo/api/breeds/image/random'
-    var request = new XMLHttpRequest()
-    request.open('GET', randomDogApi, false)
-    request.send(null)
-
-    return JSON.parse(request.response).message
-  }
+  const randomDogApi = 'https://dog.ceo/api/breeds/image/random'
 
   return (
     <body>
@@ -29,7 +20,13 @@ export const App = () => {
       <br />
       <button
         onClick={() => {
-          setDogUrl(fetchRandomDogApi())
+          fetch(randomDogApi)
+            .then(res => {
+              return res.json()
+            })
+            .then(data => {
+              setDogUrl(data.message)
+            })
         }}
       >
         更新
