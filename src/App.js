@@ -13,24 +13,32 @@ export const App = () => {
   const randomDogApi = 'https://dog.ceo/api/breeds/image/random'
 
   return (
-    <body>
-      <header>Dogアプリ</header>
-      <h1>犬の画像を表示するアプリです</h1>
-      <img src={dogUrl} />
-      <br />
-      <button
-        onClick={() => {
-          fetch(randomDogApi)
-            .then(res => {
-              return res.json()
-            })
-            .then(data => {
-              setDogUrl(data.message)
-            })
-        }}
-      >
-        更新
-      </button>
-    </body>
+    <>
+      <header className="header">Dogアプリ</header>
+      <div className="main-container">
+        <p style={{ margin: '0px 236px', fontSize: '22px' }}>
+          犬の画像を表示するアプリです
+        </p>
+        <div className="img-container">
+          <img className="img-area" src={dogUrl} />
+          <br />
+          <div
+            className="update-button"
+            onClick={() => {
+              fetch(randomDogApi)
+                .then(res => {
+                  return res.json()
+                })
+                .then(data => {
+                  setDogUrl(data.message)
+                })
+            }}
+          >
+            更新
+          </div>
+        </div>
+      </div>
+      <hr />
+    </>
   )
 }
