@@ -1,5 +1,6 @@
 // DO NOT DELETE
 import React, { useEffect, useState } from 'react'
+import { BreedsSelect } from './BreedsSelect'
 
 export const DogListContainer = () => {
   const DogListUrl = 'https://dog.ceo/api/breeds/list/all'
@@ -14,4 +15,6 @@ export const DogListContainer = () => {
         setBreeds(Object.keys(data.message))
       })
   }, [])
+
+  return <BreedsSelect breeds={breeds} />
 }
