@@ -1,6 +1,6 @@
 // DO NOT DELETE
 import React from 'react'
-import { Dogimage } from './DogImage'
+import { DogImage } from './DogImage'
 
 export const Description = () => {
   const firstDogUrl =
@@ -14,7 +14,7 @@ export const Description = () => {
         犬の画像を表示するアプリです
       </p>
       <div className="img-container">
-        <Dogimage url={dogUrl} />
+        <DogImage url={dogUrl} />
         <br />
         <div
           className="update-button"
