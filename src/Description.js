@@ -14,7 +14,7 @@ export const Description = () => {
         犬の画像を表示するアプリです
       </p>
       <div className="img-container">
-        <Dogimage dogUrl={dogUrl} />
+        <Dogimage url={dogUrl} />
         <br />
         <div
           className="update-button"

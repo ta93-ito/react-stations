@@ -2,5 +2,5 @@
 import React from 'react'
 
 export const Dogimage = props => {
-  return <img className="img-area" src={props.dogUrl} />
+  return <img className="img-area" src={props.url} />
 }
