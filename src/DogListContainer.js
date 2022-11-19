@@ -4,7 +4,7 @@ import { BreedsSelect } from './BreedsSelect'
 
 export const DogListContainer = () => {
   const DogListUrl = 'https://dog.ceo/api/breeds/list/all'
-  const [breeds, setBreeds] = useState()
+  const [breedList, setBreeds] = useState()
 
   useEffect(() => {
     fetch(DogListUrl)
@@ -16,5 +16,5 @@ export const DogListContainer = () => {
       })
   }, [])
 
-  return <BreedsSelect breeds={breeds} />
+  return <BreedsSelect breeds={breedList} />
 }

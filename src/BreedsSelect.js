@@ -2,18 +2,15 @@
 import React, { useState } from 'react'
 
 export const BreedsSelect = props => {
-  const [_, setSelectedBreed] = useState(null)
+  const [selectedBreed, setSelectedBreed] = useState(null)
   return (
-    <select>
+    <select
+      onChange={value => {
+        setSelectedBreed(value)
+      }}
+    >
       {props.breeds.map(breed => (
-        <option
-          value={breed}
-          onChange={() => {
-            setSelectedBreed(this.value)
-          }}
-        >
-          {breed}
-        </option>
+        <option value={breed}>{breed}</option>
       ))}
     </select>
   )
