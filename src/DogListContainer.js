@@ -4,7 +4,8 @@ import { BreedsSelect } from './BreedsSelect'
 
 export const DogListContainer = () => {
   const DogListUrl = 'https://dog.ceo/api/breeds/list/all'
-  const [breedList, setBreeds] = useState()
+  const [breeds, setBreeds] = useState()
+  const [dogImageUrls, setDogImageUrls] = useState([])
 
   useEffect(() => {
     fetch(DogListUrl)
@@ -15,6 +16,17 @@ export const DogListContainer = () => {
         setBreeds(Object.keys(data.message))
       })
   }, [])
-
-  return <BreedsSelect breeds={breedList} />
+  // setImageListを渡す
+  return (
+    <>
+      <BreedsSelect breeds={breeds} setDogImageUrls={setDogImageUrls} />
+      <ul>
+        {dogImageUrls.map(url => (
+          <li>
+            <img src={url} />
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
